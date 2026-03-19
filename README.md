@@ -1,24 +1,13 @@
-# README
+# Flight Booker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A beginner Rails project that demonstrates:
 
-Things you may want to cover:
+- search forms with GET
+- resourceful routing
+- custom Active Record associations
+- nested forms with fields_for
+- accepts_nested_attributes_for
+- Stripe Checkout integration
+- webhook-based payment confirmation
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The app is built in the context of The Odin Project Ruby on Rails Course: https://www.theodinproject.com/lessons/ruby-on-rails-flight-booker

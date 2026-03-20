@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  departure_airport: one
+  arrival_airport: one
+  start_datetime: 2026-03-20 05:20:35
+  duration_minutes: 1
+  price_cents: 1
+
+two:
+  departure_airport: two
+  arrival_airport: two
+  start_datetime: 2026-03-20 05:20:35
+  duration_minutes: 1
+  price_cents: 1

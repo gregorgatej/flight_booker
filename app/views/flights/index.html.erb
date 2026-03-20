@@ -31,3 +31,29 @@
 
   <%= submit_tag "Search" %>
 <% end %>
+
+<% if @matching_flights.any? %>
+  <h2>Available Flights</h2>
+
+  <%= form_with url: new_booking_path, method: :get do %>
+    <% @matching_flights.each do |flight| %>
+      <div>
+        <%= radio_button_tag :flight_id, flight.id %>
+        <%= label_tag "flight_id_#{flight.id}" do %>
+          <strong><%= flight.departure_airport.code %> → <%= flight.arrival_airport.code %></strong>
+          |
+          <%= flight.start_datetime.strftime("%Y-%m-%d %H:%M") %>
+          |
+          <%= flight.duration_minutes %> minutes
+          |
+          $<%= flight.price_cents / 100.0 %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <%= hidden_field_tag :num_passengers, params[:num_passengers] %>
+    <%= submit_tag "Continue" %>
+  <% end %>
+<% elsif search_params_present? %>
+  <p>No flights matched your search.</p>
+<% end %>

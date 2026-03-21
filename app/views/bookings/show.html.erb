@@ -1,2 +1,19 @@
-<h1>Bookings#show</h1>
-<p>Find me in app/views/bookings/show.html.erb</p>
+<h1>Booking Details</h1>
+
+<p>
+  <strong>Route:</strong>
+  <%= @booking.flight.departure_airport.code %> → <%= @booking.flight.arrival_airport.code %><br>
+  <strong>Date:</strong>
+  <%= @booking.flight.start_datetime.strftime("%Y-%m-%d %H:%M") %><br>
+  <strong>Duration:</strong>
+  <%= @booking.flight.duration_minutes %> minutes
+</p>
+
+<h2>Passengers</h2>
+<ul>
+  <% @booking.passengers.each do |passenger| %>
+    <li>
+      <%= passenger.name %> — <%= passenger.email %>
+    </li>
+  <% end %>
+</ul>

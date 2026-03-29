@@ -10,8 +10,6 @@ export default class extends Controller {
     addPassenger(event) {
         event.preventDefault()
 
-        // const template = this.templateTarget.content.cloneNode(true)
-
         const newIndex = this.passengerCount
         const html = this.templateTarget.innerHTML.replaceAll("NEW_RECORD", newIndex)
 

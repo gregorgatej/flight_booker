@@ -19,6 +19,8 @@ export default class extends Controller {
 
     removePassenger(event) {
         event.preventDefault()
+        const fieldsets = this.containerTarget.querySelectorAll("fieldset")
+        if (fieldsets.length <= 1) return
         event.target.closest("fieldset").remove()
     }
 }

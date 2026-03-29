@@ -18,4 +18,9 @@ export default class extends Controller {
         this.containerTarget.insertAdjacentHTML("beforeend", html)
         this.passengerCount++
     }
+
+    removePassenger(event) {
+        event.preventDefault()
+        event.target.closest("fieldset").remove()
+    }
 }

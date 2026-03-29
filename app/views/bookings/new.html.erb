@@ -28,7 +28,6 @@
             <%= passenger_fields.email_field :email %>
           </div>
 
-          <%= passenger_fields.hidden_field :_destroy, value: 0 %>
           <button type="button" data-action="click->passengers#removePassenger">Remove</button>
         </fieldset>
       <% end %>
@@ -55,7 +54,6 @@
         <input type="email" name="booking[passengers_attributes][NEW_RECORD][email]" id="booking_passengers_attributes_NEW_RECORD_email">
       </div>
 
-      <input type="hidden" name="booking[passengers_attributes][NEW_RECORD][_destroy]" value="0">
       <button type="button" data-action="click->passengers#removePassenger">Remove</button>
     </fieldset>
   </template>

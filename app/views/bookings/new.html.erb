@@ -9,24 +9,48 @@
   <%= @flight.id %>
 </p>
 
-<%= form_with model: @booking do |form| %>
-  <%= form.hidden_field :flight_id %>
+<div data-controller="passengers">
+  <%= form_with model: @booking do |form| %>
+    <%= form.hidden_field :flight_id %>
 
-  <%= form.fields_for :passengers do |passenger_fields| %>
+    <div data-passengers-target="container">
+      <%= form.fields_for :passengers do |passenger_fields| %>
+        <fieldset>
+          <legend>Passenger</legend>
+
+          <div>
+            <%= passenger_fields.label :name %>
+            <%= passenger_fields.text_field :name %>
+          </div>
+
+          <div>
+            <%= passenger_fields.label :email %>
+            <%= passenger_fields.email_field :email %>
+          </div>
+        </fieldset>
+      <% end %>
+    </div>
+
+    <button type="button" data-action="passengers#addPassenger">
+      Add Passenger
+    </button>
+
+    <%= form.submit "Create Booking" %>
+  <% end %>
+
+  <template data-passengers-target="template">
     <fieldset>
       <legend>Passenger</legend>
 
       <div>
-        <%= passenger_fields.label :name %>
-        <%= passenger_fields.text_field :name %>
+        <label for="booking_passengers_attributes_NEW_RECORD_name">Name</label>
+        <input type="text" name="booking[passengers_attributes][NEW_RECORD][name]" id="booking_passengers_attributes_NEW_RECORD_name">
       </div>
 
       <div>
-        <%= passenger_fields.label :email %>
-        <%= passenger_fields.email_field :email %>
+        <label for="booking_passengers_attributes_NEW_RECORD_email">Email</label>
+        <input type="email" name="booking[passengers_attributes][NEW_RECORD][email]" id="booking_passengers_attributes_NEW_RECORD_email">
       </div>
     </fieldset>
-  <% end %>
-
-  <%= form.submit "Create Booking" %>
-<% end %>
+  </template>
+</div>
